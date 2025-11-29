@@ -12,8 +12,8 @@
 #include "nvs_flash.h"
 #include "esp_log.h"
 #include "mqtt_client.h"
-#include "protocol_examples_common.h"
-
+// #include "protocol_examples_common.h"
+#include "wifi_handle.h"
 #include "common.h"
 
 static const char *TAG = "mqtt_example";
@@ -23,6 +23,7 @@ esp_mqtt_client_handle_t client;
 QueueHandle_t config_queue;
 void configuration_task();
 void publish_task();
+void adc_init();
 
 int connected_flag = 0;
 
@@ -129,14 +130,16 @@ void app_main(void)
     esp_log_level_set("outbox", ESP_LOG_VERBOSE);
 
     ESP_ERROR_CHECK(nvs_flash_init());
-    ESP_ERROR_CHECK(esp_netif_init());
+    // ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
 
     /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
      * Read "Establishing Wi-Fi or Ethernet Connection" section in
      * examples/protocols/README.md for more information about this function.
      */    
-    example_connect();
+    // example_connect();
+    wifi_init();
+    adc_init();
 
     config_queue = xQueueCreate(1, sizeof(ConfigSendQueue));
 

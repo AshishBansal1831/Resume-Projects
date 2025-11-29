@@ -91,7 +91,7 @@
 /** @addtogroup FLASH_Private_Constants
   * @{
   */
-#define FLASH_TIMEOUT_VALUE       50000U /* 50 s */
+#define FLASH_TIMEOUT_VALUE       500U /* 50 s */
 /**
   * @}
   */

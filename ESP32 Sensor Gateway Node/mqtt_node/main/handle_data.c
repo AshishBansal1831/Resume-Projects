@@ -57,15 +57,3 @@ void publish_task()
     }
 }
 
-
-void sensor_task()
-{
-    // <! Implement sensor sampling task here
-    int delay = 1000;
-
-
-    while(1)
-    {
-
-    }
-}
