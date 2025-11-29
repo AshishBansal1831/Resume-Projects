@@ -140,7 +140,7 @@ int main(void)
     fflush(stdout);
     HAL_Delay(1000);
 
-//    if (*(uint32_t*) (APP_START_ADDRESS) == 0xFFFFFFFF)
+    if (*(uint32_t*) (APP_START_ADDRESS) == 0xFFFFFFFF)
     {
         printf("No Code Found\r\n");
 //      Test_FATFS_SPI();
@@ -152,12 +152,12 @@ int main(void)
             jump_to_app();
         }
     }
-//    else
-//    {
-//        printf("YES Code Found - %8lX %8lX\r\n", *(uint32_t*) (APP_START_ADDRESS),
-//                        *(uint32_t*) (APP_START_ADDRESS + 4));
-//        jump_to_app();
-//    }
+    else
+    {
+        printf("YES Code Found - %8lX %8lX\r\n", *(uint32_t*) (APP_START_ADDRESS),
+                        *(uint32_t*) (APP_START_ADDRESS + 4));
+        jump_to_app();
+    }
     /* USER CODE END 2 */
 
     /* Infinite loop */

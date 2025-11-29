@@ -18,7 +18,7 @@ HAL_StatusTypeDef write_bank(uint32_t Address, uint8_t *Buffer, uint32_t Size)
 
     uint32_t data64;
 
-    for (uint32_t i = 0; i < Size; i += 8)
+    for (uint32_t i = 0; i < Size; i += 4)
     {
         // Clear previous data
         data64 = UINT32_MAX;
